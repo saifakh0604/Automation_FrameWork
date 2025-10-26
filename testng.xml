@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="E:/Veridian_Automation/src/test/java/tests/LoginTest.java">
+        <parameter name="browserName" value="firefox"></parameter>
+        <parameter name="url" value="https://www.veridianhealthcare.com/login/"></parameter>
+        <parameter name="username" value="testqa@yopmail.com"></parameter>
+        <parameter name="password" value="Welcome@1"></parameter>
+        <classes>
+            <class name="tests.LoginTest"></class>
+        </classes>
+    </test>
+</suite>
