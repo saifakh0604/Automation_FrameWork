@@ -1,5 +1,6 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
     private WebDriver driver;
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -24,65 +25,66 @@ public class LoginPage {
 
 
     public LoginPage(WebDriver driver){
+        super(driver);
         this.driver = driver;
     }
 
     public void enterUserName(String username){
 
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(userName)));
-        driver.findElement(userName).clear();
-        driver.findElement(userName).sendKeys(username);
+        getElement(userName).clear();
+        type(userName,username);
     }
 
     public void enterPassword(String pass){
 
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(password)));
-        driver.findElement(password).clear();
-        driver.findElement(password).sendKeys(pass);
+        getElement(password).clear();
+        type(password,pass);
     }
 
     public void enterLoginBtn(){
 
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(loginBtn)));
-        driver.findElement(loginBtn).click();
+        click(loginBtn);
     }
 
     public void loginToApp(String username, String Password){
 
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(userName)));
-        driver.findElement(userName).clear();
-        driver.findElement(userName).sendKeys(username);
+        getElement(userName).clear();
+        type(userName,username);
 
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(password)));
-        driver.findElement(password).clear();
-        driver.findElement(password).sendKeys(Password);
+        getElement(password).clear();
+        type(password,Password);
 
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(password)));
-        driver.findElement(loginBtn).click();
+        click(password);
     }
 
     public void navigateToForgotPass(){
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(forgotPasswordBtn)));
-        driver.findElement(forgotPasswordBtn).click();
+        getElement(forgotPasswordBtn).click();
     }
 
     // Getter for career image
     public WebElement getCareerImg(){
-        return driver.findElement(careerImg);
+        return getElement(careerImg);
     }
 
     // Getter for signIn Text
     public WebElement getSignInTxt(){
-        return driver.findElement(signInTxt);
+        return getElement(signInTxt);
     }
 
     // Getter for alongSignIn Text
     public WebElement getAlongSignTxt(){
-        return driver.findElement(alongSignTxt);
+        return getElement(alongSignTxt);
     }
 
     // Getter for forgot password button
     public WebElement getForgotpassBtn(){
-        return driver.findElement(forgotPasswordBtn);
+        return getElement(forgotPasswordBtn);
     }
 }
