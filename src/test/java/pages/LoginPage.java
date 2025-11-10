@@ -12,7 +12,7 @@ import java.time.Duration;
 public class LoginPage extends BasePage {
 
     private WebDriver driver;
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    WebDriverWait wait;
 
     private By signInBtn = By.xpath("//div[@id=\"page-container\"]//a[contains(@href,\"login/\")]");
     private By userName = By.xpath("//input[contains(@id,\"user_login_\")]");
@@ -27,6 +27,7 @@ public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver){
         super(driver);
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     public void enterUserName(String username){
